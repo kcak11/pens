@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display Ruler & Grid Overlay</title>
+<link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+<link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+<link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+<meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0' name='viewport' />
+<link type="text/css" rel="stylesheet" href="assets/css/generic.css" />
+</head>
+<body>
+	<div id="container">
+		<div id="imageContainer">
+			<img src="assets/images/picture.png" style="position: absolute; left: 50px; top: 50px;" title="Image Credit: https://www.google.com" />
+		</div>
+	</div>
+	<div class="toolPanel">
+		<div class="actionsContainer expanded">
+			<button type="button" class="showBtn" onclick="showOverlay();">Show Grid Overlay</button>
+			<button type="button" class="hideBtn hide" onclick="hideOverlay();">Hide Grid Overlay</button>
+			<button type="button" class="showRulerBtn hide" onclick="showRuler();">Show Ruler</button>
+			<button type="button" class="hideRulerBtn" onclick="hideRuler();">Hide Ruler</button>
+			<button type="button" class="enableGuides guideBtn" onclick="enableGuides();">Enable Guides</button>
+			<button type="button" class="disableGuides guideBtn hide" onclick="disableGuides();">Disable Guides</button>
+			<button type="button" class="clearGuides guideBtn" onclick="clearGuides();">Clear All Guides</button>
+			<fieldset>
+				<legend>
+					&nbsp; Zoom: <span id="displayZoomValue">100</span> %&nbsp;
+				</legend>
+				<button type="button" onclick="doZoom('+');">+</button>
+				<button type="button" onclick="doZoom('-');">-</button>
+			</fieldset>
+			<button type="button" class="panningTest" onclick="panningTest();">Test PANNING for Ruler, Guides, Zoom Level & Grid Lines</button>
+			<div class="expandCollapseBar" onclick="doExpandCollapse(this);"></div>
+		</div>
+	</div>
+	<div class="guideTip hide">Guides have been enabled. Move your mouse over the rulers and click to set a Guide.</div>
+	<script type="text/javascript" src="scripts/gridoverlay.js"></script>
+	<script type="text/javascript" src="scripts/ruler.js"></script>
+	<script type="text/javascript" src="scripts/generic.js"></script>
+</body>
+</html>

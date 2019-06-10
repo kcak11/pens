@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Circle Animation</title>
+        <style type="text/css">
+            html {
+                overflow: hidden;
+            }
+
+            body {
+                background-color: #167fc7;
+                overflow: hidden;
+            }
+
+            .pageBG {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -webkit-animation: animate-opacity 5s linear infinite;
+                animation: animate-opacity 5s linear infinite;
+            }
+
+            @keyframes animate-opacity {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.74;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            #container {
+                transform: scale(0.74);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 830px;
+                height: 830px;
+                margin-top: -415px;
+                margin-left: -415px;
+            }
+
+            #container img {
+                visibility: hidden;
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes reverseRotate {
+                100% {
+                    transform: rotate(-360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img class="pageBG" src="images/bg.png"/>
+        <div id="container">
+            <!-- <img src="images/0.png"/> -->
+            <img src="images/1.png"/>
+            <!-- <img src="images/2.png"/> -->
+            <img src="images/3.png"/>
+            <img src="images/4.png"/>
+            <img src="images/5.png"/>
+            <img src="images/6.png"/>
+            <img src="images/7.png"/>
+            <!-- <img src="images/8.png"/> -->
+            <img class="theK" src="images/theK.png"/>
+        </div>
+        <script type="text/javascript">
+            var circles = document.querySelectorAll("#container img");
+            var len = circles.length;
+            var checkAllLoaded = function() {
+                var ctr = 0;
+                [].forEach.call(circles, function(circle) {
+                    if (circle.complete) {
+                        ctr++;
+                    }
+                });
+                if (ctr === len) {
+                    allLoaded();
+                } else {
+                    setTimeout(function() {
+                        checkAllLoaded();
+                    }, 100);
+                }
+            };
+            var allLoaded = function() {
+                [].forEach.call(circles, function(circle) {
+                    circle.style.visibility = "visible";
+                    circle.style.position = "absolute";
+                    circle.style.top = "50%";
+                    circle.style.left = "50%";
+                    circle.style.marginTop = (-1 * circle.offsetHeight / 2) + "px"
+                    circle.style.marginLeft = (-1 * circle.offsetWidth / 2) + "px"
+                });
+                var css = "#container img:not(.theK):nth-child(even){\
+                  -webkit-animation: rotate 22s linear infinite;\
+                  animation: rotate 22s linear infinite;\
+                }\
+                #container img:not(.theK):nth-child(odd){\
+                  -webkit-animation: reverseRotate 33s linear infinite;\
+                  animation: reverseRotate 33s linear infinite;\
+                }";
+                var stl = document.createElement("style");
+                stl.type = "text/css";
+                if (stl.styleSheet) {
+                    stl.styleSheet.cssText = css;
+                } else {
+                    stl.appendChild(document.createTextNode(css));
+                }
+                document.querySelector("head").appendChild(stl);
+            };
+            checkAllLoaded();
+        </script>
+    </body>
+</html>
