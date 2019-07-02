@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>KeyCode Checker</title>
+        <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png"/>
+        <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png"/>
+        <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon'/>
+        <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image"/>
+        <style type="text/css">
+            * {
+                font-family: Tahoma;
+            }
 
-<head>
-   <title>KeyCode Checker</title>
-   <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
-   <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
-   <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
-   <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
-   <style type="text/css">
-      * {
-         font-family: Tahoma;
-      }
+            div.left, div.right {
+                margin-left: 10px;
+                display: inline-block;
+                vertical-align: middle;
+            }
 
-      div.left,
-      div.right {
-         margin-left: 10px;
-         display: inline-block;
-      }
+            [name="keyInputField"] {
+                position: absolute;
+                top: -1100px;
+                left: -1100px;
+            }
 
-      [name="keyInputField"] {
-         outline: none;
-         width: 350px;
-         height: 350px;
-         text-shadow: 0 0 0 black;
-         color: transparent;
-         text-align: center;
-         background-color: rgb(255, 255, 222);
-         font-size: 22px;
-         border: 2px solid #000;
-      }
-   </style>
-</head>
+            .inputWrapper {
+                outline: none;
+                width: 350px;
+                height: 350px;
+                background-color: rgb(255, 255, 222);
+                border: 2px solid #000;
+                position: relative;
+            }
 
-<body>
-   <div class="left">
-      <input name="keyInputField" type="text" placeholder="Click here and press a key" />
-   </div>
-   <div class="right">
-      <div id="result_keydown" style="margin-top: 10px;"></div>
-      <div id="result_keyup" style="margin-top: 10px;"></div>
-      <div id="result_key" style="margin-top: 10px;"></div>
-   </div>
-   <script type="text/javascript">
-      var elem = document.querySelector("input");
-      var result_keydown = document.querySelector("#result_keydown");
-      var result_keyup = document.querySelector("#result_keyup");
-      var result_key = document.querySelector("#result_key");
-      elem.addEventListener("keydown", function(ev) {
-         var e = ev || window.event;
-         e.preventDefault();
-         var key = e.keyCode || e.which;
-         result_keydown.innerHTML = "keydown KeyCode: " + key;
-      }, false);
-      elem.addEventListener("keyup", function(ev) {
-         var e = ev || window.event;
-         e.preventDefault();
-         var key = e.keyCode || e.which;
-         result_keyup.innerHTML = "keyup KeyCode: " + key;
-         result_key.innerHTML = e.key ? "key: " + e.key : "";
-      }, false);
-   </script>
-</body>
-
+            .inputWrapper:before {
+                content: "Click here and press a key";
+                text-shadow: 0 0 0 black;
+                color: transparent;
+                text-align: center;
+                font-size: 22px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="left">
+            <input name="keyInputField" type="text"/>
+            <div class="inputWrapper"></div>
+        </div>
+        <div class="right">
+            <div id="result_keydown" style="margin-top: 10px;"></div>
+            <div id="result_keyup" style="margin-top: 10px;"></div>
+            <div id="result_key" style="margin-top: 10px;"></div>
+        </div>
+        <script type="text/javascript">
+            var elem = document.querySelector("input");
+            document.querySelector(".inputWrapper").addEventListener("click", function(e) {
+                elem.focus();
+            }, false);
+            var result_keydown = document.querySelector("#result_keydown");
+            var result_keyup = document.querySelector("#result_keyup");
+            var result_key = document.querySelector("#result_key");
+            elem.addEventListener("keydown", function(ev) {
+                var e = ev || window.event;
+                e.preventDefault();
+                var key = e.keyCode || e.which;
+                result_keydown.innerHTML = "keydown KeyCode: " + key;
+            }, false);
+            elem.addEventListener("keyup", function(ev) {
+                var e = ev || window.event;
+                e.preventDefault();
+                var key = e.keyCode || e.which;
+                result_keyup.innerHTML = "keyup KeyCode: " + key;
+                result_key.innerHTML = e.key ? "key: " + e.key : "";
+            }, false);
+        </script>
+    </body>
 </html>
