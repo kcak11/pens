@@ -136,3 +136,12 @@ span.profile-username {
 th.sort-created_at a, th.sort-updated_at a {
     color: #fff;
 }
+
+/* ~~~~~ Temporary hack for properly rendering the UI ~~~~~ */
+.single-item::after, .single-item:focus::after, .single-item:active::after {
+    left: -1rem !important;
+    right: -1rem !important;
+    top: -1rem !important;
+    bottom: -3rem !important;
+    box-shadow: 0 0 11px #000;
+}
