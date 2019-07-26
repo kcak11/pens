@@ -88,21 +88,21 @@ header.profile-header:before {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: 1;
+        opacity: 0.5;
     }
 
     50% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: 0.5;
+        opacity: 1;
     }
 
     100% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: 1;
+        opacity: 0.5;
     }
 }
 
