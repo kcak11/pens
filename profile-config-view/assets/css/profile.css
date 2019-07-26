@@ -88,17 +88,18 @@ header.profile-header:before {
 @keyframes animate-header {
     0% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
-        opacity: 1;
     }
 
-    50% {
+    25% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
-        opacity: 0.5;
+    }
+
+    75% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
     }
 
     100% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
-        opacity: 1;
     }
 }
 
