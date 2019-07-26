@@ -79,6 +79,7 @@ div.pen-grid {
 }
 
 header.profile-header:before {
+    background-color: #000;
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-animation: animate-header 6s linear infinite;
@@ -87,19 +88,19 @@ header.profile-header:before {
 
 @keyframes animate-header {
     0% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        background-image: url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
     }
 
     25% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
+        background-image: url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
     }
 
     75% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        background-image: url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
     }
 
     100% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        background-image: url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
     }
 }
 
