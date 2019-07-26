@@ -59,7 +59,6 @@ div.pen-grid {
 }
 
 .profile-header {
-    /*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/Blue-Binary-1500x500.png);*/
     background: none;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,11 +73,34 @@ div.pen-grid {
     right: 0;
     bottom: 0;
     left: 0;
-    /*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);*/
     background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    /*opacity: 0.47;*/
+}
+
+header.profile-header:before {
+    -webkit-animation: animate-header 5s linear infinite;
+    animation: animate-header 5s linear infinite;
+}
+
+@keyframes animate-header {
+    0% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    25% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    50% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 h1#profile-name-header {
