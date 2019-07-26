@@ -79,30 +79,26 @@ div.pen-grid {
 }
 
 header.profile-header:before {
+    background-repeat: no-repeat;
+    background-size: cover;
     -webkit-animation: animate-header 6s linear infinite;
     animation: animate-header 6s linear infinite;
 }
 
 @keyframes animate-header {
     0% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: 0.5;
-    }
-
-    50% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
         opacity: 1;
     }
 
-    100% {
+    50% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
         opacity: 0.5;
+    }
+
+    100% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+        opacity: 1;
     }
 }
 
