@@ -79,8 +79,8 @@ div.pen-grid {
 }
 
 header.profile-header:before {
-    -webkit-animation: animate-header 5s linear infinite;
-    animation: animate-header 5s linear infinite;
+    -webkit-animation: animate-header 6s linear infinite;
+    animation: animate-header 6s linear infinite;
 }
 
 @keyframes animate-header {
@@ -88,18 +88,21 @@ header.profile-header:before {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
         background-repeat: no-repeat;
         background-size: cover;
-    }
-
-    25% {
-        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
+        opacity: 1;
     }
 
     50% {
+        background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.5;
+    }
+
+    100% {
         background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
         background-repeat: no-repeat;
         background-size: cover;
+        opacity: 1;
     }
 }
 
