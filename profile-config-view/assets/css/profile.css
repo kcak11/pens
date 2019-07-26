@@ -1,19 +1,19 @@
 body {
-	background-color: rgb(90, 160, 212);
+    background-color: rgb(90, 160, 212);
 }
 
-.unsupported-browser-message{
-   display: none !important;
+.unsupported-browser-message {
+    display: none !important;
 }
 
 .profile-location {
-	color: #fff;
+    color: #fff;
 }
 
 .profile-avatar {
-	background: none;
-	border: none;
-	margin-bottom: 7px;
+    background: none;
+    border: none;
+    margin-bottom: 7px;
 }
 
 @media (max-width: 550px) {
@@ -22,100 +22,99 @@ body {
     }
 }
 
-.explore-tabs a,
-.explore-tabs span {
-	color: #fff;
+.explore-tabs a, .explore-tabs span {
+    color: #fff;
 }
 
 /* .disabledCSS indicates the rule is disabled */
 #profile-search-q.disabledCSS {
-	width: 150%;
-	margin-left: -50%;
+    width: 150%;
+    margin-left: -50%;
 }
 
 .treehouse-footer a {
-	color: #fff;
+    color: #fff;
 }
 
 .featured-pen .iframe-wrap {
-	padding-top: 740px;
+    padding-top: 740px;
 }
 
 .featured-pen .iframe-wrap iframe {
-	width: 100%;
-	height: 100%;
-	transform: scale(1);
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
 }
 
 div.single-pen {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 div.pen-grid {
-	justify-content: space-between;
+    justify-content: space-between;
 }
 
-#profile-followers,
-#profile-following {
-	display: none;
+#profile-followers, #profile-following {
+    display: none;
 }
 
 .profile-header {
-	/*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/Blue-Binary-1500x500.png);*/
-	background: none;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+    /*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/Blue-Binary-1500x500.png);*/
+    background: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .profile-header:before {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	/*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);*/
-	background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	/*opacity: 0.47;*/
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);*/
+    background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*opacity: 0.47;*/
 }
 
 h1#profile-name-header {
-	color: #000;
-	text-shadow: 0px 0px 22px rgb(255, 255, 255);
+    color: #000;
+    text-shadow: 0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff;
 }
 
 span.profile-username {
-	color: #000;
-	font-size: 22px;
-	font-weight: bold;
-	text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+    letter-spacing: 5px;
 }
 
 @media (max-width: 550px) {
-	span.profile-username {
-		font-size: 11px;
-	}
+    span.profile-username {
+        font-size: 11px;
+    }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-	#profile-links.profile-links {
-		width: 200px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+    #profile-links.profile-links {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 #edit-profile-link {
-	background-color: #000;
+    background-color: #000;
 }
 
 #edit-profile-link:hover {
-	color: #fff;
+    color: #fff;
 }
 
 .item-in-list-view {
@@ -138,10 +137,14 @@ th.sort-created_at a, th.sort-updated_at a {
 }
 
 /* ~~~~~ Temporary hack for properly rendering the UI ~~~~~ */
-.single-item::after, .single-item:focus::after, .single-item:active::after {
+.single-item::after {
     left: -0.5rem !important;
     right: -0.5rem !important;
     top: -0.5rem !important;
     bottom: -3rem !important;
-    box-shadow: 0 0 11px #000;
+    box-shadow: 0 0 11px #000, 0 0 11px #000;
+}
+
+.single-item:hover::after {
+    box-shadow: 0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff;
 }
