@@ -14,6 +14,33 @@ body {
     background: none;
     border: none;
     margin-bottom: 7px;
+    border-radius: 100%;
+    padding: 4px;
+    -webkit-animation: logoanim 2s linear infinite;
+    animation: logoanim 2s linear infinite;
+    background-color: transparent;
+}
+
+@keyframes logoanim {
+    0% {
+        box-shadow: 11px 11px 11px #f00,-11px -11px 11px #00f,11px -11px 11px #008000,-11px 11px 11px #ffa500;
+    }
+
+    25% {
+        box-shadow: 11px 11px 11px #ffa500,-11px -11px 11px #f00,11px -11px 11px #00f,-11px 11px 11px #008000;
+    }
+
+    50% {
+        box-shadow: 11px 11px 11px #008000,-11px -11px 11px #ffa500,11px -11px 11px #f00,-11px 11px 11px #00f, 11px 11px 11px #008000,-11px -11px 11px #ffa500,11px -11px 11px #f00,-11px 11px 11px #00f;
+    }
+
+    75% {
+        box-shadow: 11px 11px 11px #00f,-11px -11px 11px #008000,11px -11px 11px #ffa500,-11px 11px 11px #f00;
+    }
+
+    100% {
+        box-shadow: 11px 11px 11px #f00,-11px -11px 11px #00f,11px -11px 11px #008000,-11px 11px 11px #ffa500;
+    }
 }
 
 @media (max-width: 550px) {
