@@ -23,23 +23,23 @@ body {
 
 @keyframes logoanim {
     0% {
-        box-shadow: 11px 11px 11px #f00,-11px -11px 11px #00f,11px -11px 11px #008000,-11px 11px 11px #ffa500;
+        box-shadow: 11px 11px 11px #f00,11px 11px 11px #f00,-11px -11px 11px #00f,-11px -11px 11px #00f,11px -11px 11px #008000,11px -11px 11px #008000,-11px 11px 11px #ffa500,-11px 11px 11px #ffa500;
     }
 
     25% {
-        box-shadow: 11px 11px 11px #ffa500,-11px -11px 11px #f00,11px -11px 11px #00f,-11px 11px 11px #008000;
+        box-shadow: 11px 11px 11px #ffa500,11px 11px 11px #ffa500,-11px -11px 11px #f00,-11px -11px 11px #f00,11px -11px 11px #00f,11px -11px 11px #00f,-11px 11px 11px #008000,-11px 11px 11px #008000;
     }
 
     50% {
-        box-shadow: 11px 11px 11px #008000,-11px -11px 11px #ffa500,11px -11px 11px #f00,-11px 11px 11px #00f, 11px 11px 11px #008000,-11px -11px 11px #ffa500,11px -11px 11px #f00,-11px 11px 11px #00f;
+        box-shadow: 11px 11px 11px #008000,11px 11px 11px #008000,-11px -11px 11px #ffa500,-11px -11px 11px #ffa500,11px -11px 11px #f00,11px -11px 11px #f00,-11px 11px 11px #00f,-11px 11px 11px #00f;
     }
 
     75% {
-        box-shadow: 11px 11px 11px #00f,-11px -11px 11px #008000,11px -11px 11px #ffa500,-11px 11px 11px #f00;
+        box-shadow: 11px 11px 11px #00f,11px 11px 11px #00f,-11px -11px 11px #008000,-11px -11px 11px #008000,11px -11px 11px #ffa500,11px -11px 11px #ffa500,-11px 11px 11px #f00,-11px 11px 11px #f00;
     }
 
     100% {
-        box-shadow: 11px 11px 11px #f00,-11px -11px 11px #00f,11px -11px 11px #008000,-11px 11px 11px #ffa500;
+        box-shadow: 11px 11px 11px #f00,11px 11px 11px #f00,-11px -11px 11px #00f,-11px -11px 11px #00f,11px -11px 11px #008000,11px -11px 11px #008000,-11px 11px 11px #ffa500,-11px 11px 11px #ffa500;
     }
 }
 
