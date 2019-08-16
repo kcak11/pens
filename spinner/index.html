@@ -65,7 +65,22 @@
     </head>
     <body>
         <img class="pageBG" src="assets/bg.png">
-        <img class="ribbon" src="assets/colored_wheel.png"/>
-        <img class="theK" src="assets/theK.png"/>
+        <img class="ribbon" src="assets/colored_wheel.png" style="visibility:hidden;"/>
+        <img class="theK" src="assets/theK.png" style="visibility:hidden;"/>
+        <script type="text/javascript">
+            var coloredWheel = document.querySelector(".ribbon");
+            var theK = document.querySelector(".theK");
+            var _chk = function() {
+                if (coloredWheel.complete && theK.complete) {
+                    coloredWheel.style.visibility = "";
+                    theK.style.visibility = "";
+                } else {
+                    setTimeout(function() {
+                        _chk();
+                    }, 65);
+                }
+            };
+            _chk();
+        </script>
     </body>
 </html>
