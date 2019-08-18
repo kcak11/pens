@@ -17,7 +17,7 @@
                 }
 
                 50% {
-                    opacity: 0.29;
+                    opacity: 0.11;
                 }
 
                 100% {
@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <img class="pageBG" src="assets/bg.png">
+        <img class="pageBG" src="assets/bg0.png">
         <img class="ribbon" src="assets/colored_wheel.png" style="visibility:hidden;"/>
         <img class="theK" src="assets/theK.png" style="visibility:hidden;"/>
         <script type="text/javascript">
@@ -81,8 +81,19 @@
                 }
             };
             _chk();
-            if(window.location.href.indexOf("?nobg") > -1) {
+            if (window.location.href.indexOf("?nobg") > -1) {
                 document.querySelector(".pageBG").style.visibility = "hidden";
+            }
+            var bgCtr = 0;
+            var updateBG = function() {
+                document.querySelector(".pageBG").src = "assets/bg" + (bgCtr % 5) + ".png";
+                setTimeout(function() {
+                    bgCtr++;
+                    updateBG();
+                }, ((bgCtr === 0) ? 5500 : 11000));
+            };
+            if (!(window.location.href.indexOf("?nobg") > -1)) {
+                updateBG();
             }
         </script>
     </body>
