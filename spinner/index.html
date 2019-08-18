@@ -61,12 +61,22 @@
                 -webkit-animation: rotate 1s linear infinite;
                 animation: rotate 1s linear infinite;
             }
+
+            .hidden {
+                display: none;
+            }
         </style>
     </head>
     <body>
         <img class="pageBG" src="assets/bg0.png">
         <img class="ribbon" src="assets/colored_wheel.png" style="visibility:hidden;"/>
         <img class="theK" src="assets/theK.png" style="visibility:hidden;"/>
+        <div class="hidden">
+            <img class="pageBG" src="assets/bg1.png">
+            <img class="pageBG" src="assets/bg2.png">
+            <img class="pageBG" src="assets/bg3.png">
+            <img class="pageBG" src="assets/bg4.png">
+        </div>
         <script type="text/javascript">
             var coloredWheel = document.querySelector(".ribbon");
             var theK = document.querySelector(".theK");
