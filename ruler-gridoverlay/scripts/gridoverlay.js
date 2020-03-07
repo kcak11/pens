@@ -47,7 +47,7 @@
 			}
 			gridColor = color;
 			this.zoom(this.gridScale);
-		}
+		};
 
 		/**
 		 * Check whether the Gridoverlay is displayed or not.
