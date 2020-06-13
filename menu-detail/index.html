@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Menu - Detail Component</title>
+</head>
+
+<head>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+
+        .rectangle {
+            position: relative;
+            width: 200px;
+            height: 50px;
+        }
+
+        .triangle {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            transform: rotate(45deg);
+            transform-origin: 0 0;
+            top: -2px;
+            right: -37px;
+            z-index: 1;
+        }
+
+        .rectangle,
+        .triangle {
+            border: 2px solid #fff;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .rectangle:hover,
+        .rectangle:hover .triangle {
+            border: 2px solid #5ba0d4;
+            background-color: #5ba0d4;
+            box-shadow: 0 0 11px #5ba0d4;
+        }
+
+        .rectangle span {
+            position: absolute;
+            color: #000;
+            font-family: Verdana;
+            font-weight: bold;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            padding-left: 18px;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .rectangle:hover span {
+            color: #fff;
+        }
+
+        #container {
+            position: relative;
+            width: 980px;
+            height: 350px;
+            border: 2px solid #5ba0d4;
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        #menuContainer {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 240px;
+        }
+
+        #detail {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 245px;
+            width: 700px;
+        }
+
+        #detail>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #detail span.detail {
+            color: #5ba0d4;
+        }
+
+        #detail {
+            border: 2px solid #5ba0d4;
+            border-radius: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="k11/template">
+        <div class="rectangle">
+            <span></span>
+            <div class="triangle">
+            </div>
+        </div>
+    </script>
+    <h1>Menu - Detail Component</h1>
+    <div id="container">
+        <div id="menuContainer"></div>
+        <div id="detail"><span></span></div>
+    </div>
+    <script type="text/javascript">
+        ((function () {
+            var menuItems = ["Menu Item 1", "Menu Item 2", "Menu Item 3", "Menu Item 4", "Menu Item 5", "Menu Item 6"];
+
+            var showDetail = function (e) {
+                e.stopPropagation();
+                document.querySelector("#detail span").innerHTML = "Details for <span class='detail'>" + e.currentTarget.querySelector("span").innerHTML + "</span>";
+            };
+
+            var addMenuItem = function (itemText) {
+                var tmp = document.createElement("div");
+                tmp.innerHTML = document.querySelector("script[type=\"k11/template\"]").innerHTML;
+                tmp.querySelector(".rectangle span").innerHTML = itemText;
+                var menuItem = tmp.querySelector(".rectangle");
+                menuItem.addEventListener("mouseover", showDetail, false);
+                document.getElementById("menuContainer").appendChild(menuItem);
+            };
+
+            for (var i = 0; i < menuItems.length; i++) {
+                addMenuItem(menuItems[i]);
+            }
+
+            document.getElementById("detail").style.height = document.getElementById("menuContainer").offsetHeight + "px";
+
+            var displayDefault = function () {
+                document.querySelector("#detail span").innerHTML = "Hover your mouse on the Menu Items";
+            };
+
+            displayDefault();
+
+            document.getElementById("container").addEventListener("mouseover", displayDefault);
+        })());
+    </script>
+</body>
+
+</html>
