@@ -89,12 +89,17 @@ h1#profile-name-header {
     text-shadow: 0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff,0 0 11px #fff;
 }
 
+h1#profile-name-header .profile-name-wrapper {
+    overflow: visible;
+}
+
 span.profile-username {
     color: #000;
     font-size: 22px;
     font-weight: bold;
     text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
     letter-spacing: 5px;
+    overflow: visible;
 }
 
 @media (max-width: 550px) {
