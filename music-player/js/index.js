@@ -102,3 +102,5 @@
 
     document.querySelector("button.play").addEventListener("click", doPlay, false);
 }());
+
+/* tag: Abdmyc5NFEZISLiVpFr9FIUs27GCfwcV6Xl3xUOdX6Qsd7WCcAMjNvJDW2uirLRED6xjgvzBqfhkpMhUr50e3YjhHielWmQ78tY4 */
