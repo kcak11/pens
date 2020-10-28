@@ -1,17 +1,18 @@
 /*
 © Copyright https://kcak11.com / https://ashishkumarkc.com
 */
-(function() {
+(function () {
     selBox = document.querySelector("select[name=playlist]");
-    var fetchPlaylistSources = function() {
+    var fetchPlaylistSources = function () {
         var data = null;
 
         var xhr = new XMLHttpRequest();
-        xhr.addEventListener("readystatechange", function() {
+        xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 try {
                     updateListComponent(JSON.parse(this.responseText));
-                } catch (exjs) {//Do nothing :( error occured
+                } catch (exjs) {
+                    /* Do nothing :-( error occured */
                 }
             }
         });
@@ -20,7 +21,7 @@
         xhr.send(data);
     };
 
-    var updateListComponent = function(response) {
+    var updateListComponent = function (response) {
         var opt, data = response.data;
         document.querySelector(".container").classList.remove("visibleNone");
         for (var i = 0; i < data.length; i++) {
@@ -29,11 +30,15 @@
             opt.value = data[i].dUrl;
             selBox.appendChild(opt);
         }
+        selBox.addEventListener("change", function (e) {
+            var audioElem = document.querySelector("audio");
+            audioElem && audioElem.parentNode.removeChild(audioElem);
+        }, false);
         var loopCBox = document.querySelector("input[name=audioLoop]");
         loopCBox.style.marginTop = (-1 * (loopCBox.offsetHeight / 2)) + "px";
     };
 
-    var adjustPlayerSize = function() {
+    var adjustPlayerSize = function () {
         var dimDiv = document.querySelector("#dimDiv");
         if (!dimDiv) {
             dimDiv = document.createElement("div");
@@ -76,13 +81,13 @@
         }
     };
     adjustPlayerSize();
-    window.onresize = function() {
+    window.onresize = function () {
         adjustPlayerSize();
     };
 
     fetchPlaylistSources();
 
-    var doPlay = function(e) {
+    var doPlay = function (e) {
         var audioElem = document.querySelector("audio"), sourceElem;
         if (audioElem) {
             audioElem.parentNode.removeChild(audioElem);
