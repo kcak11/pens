@@ -16,7 +16,7 @@
             }
         });
 
-        xhr.open("GET", "https://pen.kcak11.com/music-player/json/playlist.json");
+        xhr.open("GET", "https://pen.kcak11.com/music-player/json/playlist.json?pid=" + new Date().getTime());
         xhr.send(data);
     };
 
