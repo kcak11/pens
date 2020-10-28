@@ -2,26 +2,31 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <title>Music Player</title>
-   <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
-   <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
-   <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
-   <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
-   <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
-   <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+    <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+    <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+    <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+    <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-   <div class="container visibleNone">
-      <label for="playlist">Select Audio:</label>
-      <select id="playlist" name="playlist"></select>
-      <label class="audioLoop"><input type="checkbox" name="audioLoop" checked/> Loop Selected Audio</label>
-      <button type="button" class="play">➤ Play</button>
-   </div>
+    <div class="container visibleNone">
+        <label for="playlist">Select Audio:</label>
+        <select id="playlist" name="playlist"></select>
+        <label class="audioLoop"><input type="checkbox" name="audioLoop" checked /> Loop Selected Audio</label>
+        <button type="button" class="play">➤ Play</button>
+    </div>
 
-   <script src="js/index.js"></script>
+    <script type="text/javascript">
+        var scr = document.createElement("script");
+        scr.type = "text/javascript";
+        scr.src = "js/index.js?sid=" + new Date().getTime();
+        document.querySelector("body").appendChild(scr);
+    </script>
 
 </body>
 
