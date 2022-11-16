@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Days Elapsed Checker</title>
+        <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+        <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+        <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+        <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+        <style type="text/css">
+            body {
+                font-family: Verdana;
+            }
+
+            input {
+                width: 200px;
+                height: 30px;
+                font-size: 22px;
+                margin-bottom: 20px;
+                outline: none;
+                border: 2px solid #000;
+            }
+
+            .fineprint {
+                margin-top: 44px;
+                font-size: 11px;
+                font-style: italic;
+            }
+
+            div.row span.left {
+                text-align: right;
+                width: 272px;
+                display: inline-block;
+            }
+
+            div.row span.right {
+                text-align: left;
+                width: 150px;
+                display: inline-block;
+            }
+
+            sup {
+                color: #00f;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Days Elapsed Checker</h1>
+        <div>
+            <span>Start Date:</span>
+            <br/>
+            <input name="start" type="text" placeholder="YYYY-MM-DD"/>
+            <br/>
+            <span>End Date:</span>
+            <br/>
+            <input name="end" type="text" placeholder="YYYY-MM-DD"/>
+            <br/>
+            <div id="errMsg" style="color:#f00;"></div>
+        </div>
+        <div id="results"></div>
+        <div class="fineprint">
+            <sup>**</sup>Note:<br/>
+            The results for months & years are an approximation.<br/>
+            For computational efficiency:<br/>
+            - The length for month has been averaged as 30 days.<br/>
+            - The length for year has been averaged as 365 days.
+        </div>
+        <script type="text/javascript">
+            var start = document.querySelector("[name=start]");
+            var end = document.querySelector("[name=end]");
+            var errMsg = document.querySelector("#errMsg");
+            var results = document.querySelector("#results");
+            var today = new Date();
+            var dayMonthFormatter = function(num) {
+                return num < 10 ? "0" + num : num
+            };
+            var yearFormatter = function(num) {
+                return num < 1000 ? "0" + num : num
+            };
+            var todayString = dayMonthFormatter(today.getFullYear()) + "-" + dayMonthFormatter(today.getMonth() + 1) + "-" + dayMonthFormatter(today.getDate());
+            var invalidDate = "Invalid Date Input, Expected format: YYYY-MM-DD";
+            var endLesserThanStart = "End Date should be greater than or equal to Start Date";
+            start.value = todayString;
+            end.value = todayString;
+            var processDateFields = function() {
+                var parsedStartDate, parsedEndDate;
+                try {
+                    parsedStartDate = parseDate(start);
+                    parsedEndDate = parseDate(end);
+                    if (parsedEndDate < parsedStartDate) {
+                        throw new Error(endLesserThanStart);
+                    }
+                    errMsg.innerHTML = "";
+                    displayElapsedInfo(parsedStartDate, parsedEndDate);
+                } catch (exjs) {
+                    errMsg.innerHTML = exjs.message;
+                    results.innerHTML = "";
+                }
+            };
+            var monthDayMap = {
+                1: 31,
+                3: 31,
+                4: 30,
+                5: 31,
+                6: 30,
+                7: 31,
+                8: 31,
+                9: 30,
+                10: 31,
+                11: 30,
+                12: 31
+            };
+            var parseDate = function(field) {
+                var parts = field.value.split("-");
+                if (isNaN(parts[0]) || isNaN(parts[1]) || isNaN(parts[2])) {
+                    throw new Error(invalidDate);
+                }
+                if (!parts[0].length || parts[0].length > 4 || !parts[1].length || parts[1].length > 2 || !parts[2].length || parts[2].length > 2) {
+                    throw new Error(invalidDate);
+                }
+                var year = parseInt(parts[0]);
+                var month = parseInt(parts[1]);
+                var date = parseInt(parts[2]);
+                if (!year || !month || !date) {
+                    throw new Error(invalidDate);
+                }
+                if (month > 12) {
+                    throw new Error(invalidDate);
+                }
+                if (month === 2) {
+                    if (year % 4 === 0) {
+                        if (date > 29) {
+                            throw new Error(invalidDate);
+                        }
+                    } else {
+                        if (date > 28) {
+                            throw new Error(invalidDate);
+                        }
+                    }
+                } else {
+                    if (date > monthDayMap[month]) {
+                        throw new Error(invalidDate);
+                    }
+                }
+
+                var dt = new Date();
+                dt.setFullYear(parts[0]);
+                dt.setMonth(parts[1]);
+                dt.setDate(parts[2]);
+                dt.setHours(0);
+                dt.setMinutes(0);
+                dt.setSeconds(0);
+                dt.setMilliseconds(0);
+                return dt;
+            };
+            var displayElapsedInfo = function(startDate, endDate) {
+                results.innerHTML = "";
+                var numDays = Math.floor((endDate.getTime() - startDate.getTime()) / (24 * 60 * 60 * 1000));
+                var numMonths = Math.floor((endDate.getTime() - startDate.getTime()) / (30 * 24 * 60 * 60 * 1000));
+                var numYears = (endDate.getTime() - startDate.getTime()) / (365 * 24 * 60 * 60 * 1000);
+                results.innerHTML += "<div class=\"row\"><span class=\"left\">Total number of days elapsed: </span><span class=\"right\">" + numDays + "</span></div>";
+                results.innerHTML += "<div class=\"row\"><span class=\"left\">Total number of months elapsed: </span><span class=\"right\">" + numMonths + "&nbsp;<sup>**</sup></span></div>";
+                results.innerHTML += "<div class=\"row\"><span class=\"left\">Total number of years elapsed: </span><span class=\"right\">" + parseInt(numYears * 100) / 100 + "&nbsp;<sup>**</sup></span></div>";
+            };
+            processDateFields();
+            var _sdate = start.value;
+            var _edate = end.value;
+            setInterval(function() {
+                if (!(start.value === _sdate && end.value === _edate)) {
+                    _sdate = start.value;
+                    _edate = end.value;
+                    processDateFields();
+                }
+            }, 121);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+body{
+  background-color: rgb(90,160,212);
+}
+.unsupported-browser-message{
+   display: none !important;
+}
+.mega-header h1 {
+    font-size: 4.0rem;
+    padding: 0 10% 0 0;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+h1.post-title{
+  	font-size:44px !important;
+	color: #000;
+	text-shadow: 0px 0px 22px #fff;
+}
+footer{
+  display:none;
+}
+.width-wrapper-comments{
+  display:none;
+}
+time.date-block{
+  display:none;
+}
+iframe#cp_embed_zPgyBq{
+  height:800px;
+}
+.post-body>p{
+  max-width: 650px;
+}
+span.stat-comments{
+  display:none !important;
+}
+header.post-header {
+	/*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/Blue-Binary-1500x500.png);*/
+	background: none;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+header.post-header:before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/bg.png);*/
+	background: #000 url(https://cdn.kcak11.com/pens/profile-config-view/assets/blended_bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*opacity: 0.47;*/
+}
+
+header.post-header .content-author {
+	border-bottom: 3px solid #000;
+}
