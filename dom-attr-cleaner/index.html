@@ -5,7 +5,7 @@
    <title>DOM Attribute Cleaner</title>
    <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
    <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
-   <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+   <link href='//www.kcak11.com/favicon.png' rel='icon' type='image/x-icon' />
    <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
    <style type="text/css">
       body {
@@ -29,7 +29,7 @@
    </style>
    <script type="text/javascript">
       function cleanAttributes(elem) {
-         elem.querySelectorAll('*').forEach(function(o) {
+         elem.querySelectorAll('*').forEach(function (o) {
             if (o.attributes) {
                var t = [];
                for (var i in o.attributes) {
@@ -37,7 +37,7 @@
                      t.push(o.attributes[i]['localName']);
                   }
                }
-               t.forEach(function(a) {
+               t.forEach(function (a) {
                   o.removeAttribute(a);
                });
             }
