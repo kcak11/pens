@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Event Handling and Dispatching</title>
+    <style type="text/css">
+        body {
+            font-family: Tahoma;
+            font-size: 22px;
+        }
+
+        div {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Open your browser's console and reload this page, to see the event handling/dispatching simulation.</h1>
+    <div><span>Event Handling Element</span></div>
+    <script type="text/javascript">
+        var eventList = ["mouseup", "mousedown", "click", "dblclick", "change", "input", "focus", "focusin", "focusout", "blur", "mouseover", "mouseout", "mouseenter", "mouseleave", "load", "submit", "reset", "keydown", "keypress", "keyup", "contextmenu", "drag", "dragend", "dragenter", "dragstart", "dragleave", "dragover", "drop"];
+        var divElem = document.querySelector("div");
+        for (var i = 0; i < eventList.length; i++) {
+            divElem.addEventListener(eventList[i], handler, false);
+        }
+        function handler(e) {
+            console.log("/*~~~~~~~~~~~~~~~~~~~~~~*/");
+            console.log("Event type: ", e.type);
+            console.log("target: ", e.target);
+            console.log("currentTarget: ", e.currentTarget);
+            console.log("/*~~~~~~~~~~~~~~~~~~~~~~*/");
+        }
+        function fireEvent(elem, eventName) {
+            var evt;
+            try {
+                evt = new Event(eventName, { bubbles: true, cancelable: true, composed: true });
+                elem.dispatchEvent(evt);
+            } catch (exjs) {
+                evt = document.createEvent('Event');
+                evt.initEvent(eventName, true, true);
+                elem.dispatchEvent(evt);
+            }
+        }
+        setTimeout(function () {
+            for (var i = 0; i < eventList.length; i++) {
+                fireEvent(divElem.querySelector("span"), eventList[i]);
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

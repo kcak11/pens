@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+    <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+    <link href='//www.kcak11.com/favicon.png' rel='icon' type='image/x-icon' />
+    <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <img src="assets/images/sound-effect.gif" class="visualization" />
+    <div class="container visibleNone">
+        <label for="playlist">Select Audio:</label>
+        <select id="playlist" name="playlist"></select>
+        <label class="audioLoop"><input type="checkbox" name="audioLoop" checked /> Loop Selected Audio</label>
+        <button type="button" class="play">➤ Play</button>
+    </div>
+
+    <script type="text/javascript">
+        var scr = document.createElement("script");
+        scr.type = "text/javascript";
+        scr.src = "js/index.js?sid=" + new Date().getTime();
+        document.querySelector("body").appendChild(scr);
+    </script>
+
+</body>
+
+</html>
+
+<!-- tag: yUbl1wYHajO2iNbqydIxXbDG2D5J0R0wVuUX6pW6hfoTcNneiRt97YaPIXMsB2OJ3PgOQ60W -->

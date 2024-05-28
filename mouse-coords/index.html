@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Mouse Position Tester</title>
+   <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+   <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+   <link href='//www.kcak11.com/favicon.png' rel='icon' type='image/x-icon' />
+   <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+   <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0' name='viewport' />
+   <meta name="theme-color" content="#6593E4" />
+   <style type="text/css">
+      body {
+         font-family: Tahoma;
+      }
+
+      .container {
+         position: relative;
+      }
+
+      .left,
+      .right {
+         display: inline-block;
+         vertical-align: top;
+      }
+
+      #mousePropInvoker {
+         width: 350px;
+         height: 350px;
+         border: 2px solid #000;
+         position: relative;
+         background-color: rgb(255, 255, 222);
+      }
+
+      #mousePropInvoker .text {
+         display: block;
+         cursor: default;
+         width: 216px;
+         height: 30px;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-left: -108px;
+         margin-top: -15px;
+      }
+
+      #mousePropResult {
+         height: 350px;
+         margin-left: 22px;
+         line-height: 29px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="left">
+         <div id="mousePropInvoker">
+            <div class="text">Move Mouse here & observe</div>
+         </div>
+      </div>
+      <div class="right">
+         <div id="mousePropResult"></div>
+      </div>
+   </div>
+   <script type="text/javascript">
+      var elem = document.querySelector("#mousePropInvoker");
+      var resultDiv = document.querySelector("#mousePropResult");
+      elem.addEventListener("mousemove", function (e) {
+         var result = [];
+         for (var key in e) {
+            if (typeof e[key] === "number" && (key.indexOf("X") === key.length - 1 || key.indexOf("Y") === key.length - 1 || key.indexOf("x") === key.length - 1 || key.indexOf("y") === key.length - 1)) {
+               if ((e[key] === 0 || e[key]) && typeof e[key] !== "function") {
+                  result.push(key + ": " + e[key]);
+               }
+            }
+         }
+         resultDiv.innerHTML = result.join("<br/>");
+      }, false);
+   </script>
+</body>
+
+</html>

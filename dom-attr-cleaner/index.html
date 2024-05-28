@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>DOM Attribute Cleaner</title>
+   <link rel="icon" sizes="192x192" href="//www.kcak11.com/assets/images/the-k-circle_192x192.png" />
+   <link rel="apple-touch-icon" sizes="128x128" href="//www.kcak11.com/assets/images/the-k-circle_128x128.png" />
+   <link href='//www.kcak11.com/favicon.png' rel='icon' type='image/x-icon' />
+   <meta content="https://cdn.kcak11.com/profile/the-k-circle.png" itemprop="image" />
+   <style type="text/css">
+      body {
+         font-family: Verdana;
+      }
+
+      textarea {
+         display: inline-block;
+         vertical-align: top;
+         width: 400px;
+         height: 200px;
+         resize: none;
+         background-color: #fffad2;
+      }
+
+      button {
+         display: inline-block;
+         background-color: blue;
+         color: #fff;
+      }
+   </style>
+   <script type="text/javascript">
+      function cleanAttributes(elem) {
+         elem.querySelectorAll('*').forEach(function (o) {
+            if (o.attributes) {
+               var t = [];
+               for (var i in o.attributes) {
+                  if (o.attributes[i]['localName']) {
+                     t.push(o.attributes[i]['localName']);
+                  }
+               }
+               t.forEach(function (a) {
+                  o.removeAttribute(a);
+               });
+            }
+         });
+      }
+
+      function doClean() {
+         var im = document.querySelector("textarea[name=inputMarkup]");
+         var om = document.querySelector("textarea[name=outputMarkup]");
+         var tmp = document.createElement("div");
+         tmp.innerHTML = im.value;
+         cleanAttributes(tmp);
+         om.value = tmp.innerHTML;
+      }
+   </script>
+</head>
+
+<body>
+   <h1>DOM Attribute Cleaner</h1>
+   <textarea name="inputMarkup"></textarea>
+   <button type="button" onclick="doClean();">Clean Attributes</button>
+   <textarea name="outputMarkup"></textarea>
+   <script type="text/javascript">
+      document.querySelector("textarea[name=inputMarkup]").value = "<div data-info=\"some data\" class=\"some-css-class another-class\">\n\t<div data-xyz='abc'>\n\t\t<span style='color:blue;font-size:11px;'></span>\n\t</div>\n</div>";
+   </script>
+</body>
+
+</html>
+<!-- vTag: 2NjU4ODYyNDAzMDQ5MDUxMC4wNjAxOTE2NDI2MTIxOTAwMTAuMTE3NDg1MTIxODY4O -->

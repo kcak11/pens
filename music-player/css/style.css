@@ -1,0 +1,126 @@
+@charset "UTF-8"; /*
+© Copyright https://kcak11.com / https://ashishkumarkc.com
+*/
+* {
+  outline: none;
+}
+
+body {
+  background-color: #000;
+  font-family: Verdana;
+}
+
+body .visualization {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  z-index: 1;
+  visibility: hidden;
+}
+
+body .container {
+  background-color: rgba(90, 160, 212, 1);
+  width: 360px;
+  height: 200px;
+  border-radius: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  margin-left: -180px;
+  margin-top: -100px;
+}
+
+body .container.playing {
+  background-color: rgba(90, 160, 212, 0);
+}
+
+body .container:not(.playing):hover {
+  box-shadow: 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff,
+    0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff, 0 0 11px #fff;
+}
+
+body .container label[for="playlist"] {
+  color: #fff;
+  width: 250px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -125px;
+}
+
+body .container.playing label[for="playlist"] {
+  text-shadow: 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00,
+    0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00;
+}
+
+body .container select[name="playlist"] {
+  width: 250px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: -125px;
+}
+
+body .container label.audioLoop {
+  padding-left: 25px;
+  color: #fff;
+  font-size: 11px;
+  width: 250px;
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  margin-left: -125px;
+}
+
+body .container.playing label.audioLoop {
+  text-shadow: 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00,
+    0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00, 0px 0px 5px #f00;
+}
+
+body .container label.audioLoop input {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+}
+
+body .container button.play {
+  width: 100px;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  margin-left: -50px;
+  border: 0px;
+  padding: 5px;
+  border-radius: 11px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset,
+    0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset,
+    0 0 4px #ff0000 inset, 0 0 4px #ff0000 inset;
+}
+
+body .container button.play:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+body .container.audio-active button.play {
+  visibility: hidden;
+}
+
+body .container audio {
+  width: 250px;
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body .visibleNone {
+  visibility: hidden;
+}
